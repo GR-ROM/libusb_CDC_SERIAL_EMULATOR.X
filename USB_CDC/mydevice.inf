@@ -1,0 +1,53 @@
+; Vendor INF File for USB HID devices
+;
+; A sample INF for a stand-alone USB HID device that supports 
+; selective suspend
+
+[Version]
+Signature   ="$WINDOWS NT$"
+Class       =HIDClass
+ClassGuid   ={745a17a0-74d3-11d0-b6fe-00a0c90f57da}
+Provider    =%VendorName%
+DriverVer   =09/19/2008,6.0.0.0
+CatalogFile =VendorXYZ.cat
+
+; ================= Class section =====================
+[ControlFlags]
+ExcludeFromSelect=*
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%VendorName% = VendorXYZDevice,NTx86,NTamd64,NTarm
+
+[VendorXYZDevice.NTx86]
+%VendorXYZ.DeviceDesc% = VendorXYZDevice_Install, USB\VID_04D8&PID_0400
+
+[VendorXYZDevice.NTamd64]
+%VendorXYZ.DeviceDesc% = VendorXYZDevice_Install, USB\VID_04D8&PID_0400
+
+[VendorXYZDevice.NTarm]
+%VendorXYZ.DeviceDesc% = VendorXYZDevice_Install, USB\VID_04D8&PID_0400
+
+
+[VendorXYZDevice_Install.NT] 
+include     = input.inf
+needs       = HID_SelSus_Inst.NT
+
+[VendorXYZDevice_Install.NT.HW]
+include     = input.inf
+needs       = HID_SelSus_Inst.NT.HW
+
+[VendorXYZDevice_Install.NT.Services]
+include     = input.inf
+needs       = HID_SelSus_Inst.NT.Services
+
+[Strings]
+VendorName = "Grinev Roman Industries"
+DiskName   = "HID class device Installation Disk"
+VendorXYZ.DeviceDesc = "PIC18F14K50 custom gamepad"
