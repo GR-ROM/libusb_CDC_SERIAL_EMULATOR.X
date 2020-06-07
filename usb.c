@@ -5,21 +5,10 @@
 #include "usbdesc.h"
 #include "usb_cdc.h"
 
-// Project: libusb v0.1.2
-// Description: small device USB stack (NOT HOST - DEVICE ONLY) for Microchip PIC microcontrollers
+// Description: tiny USB stack for Microchip PIC microcontrollers
 // Features: HID class, CDC class supported
-// to do: URGENT! build a minimal version of the lib (LESS THAN 2KW!) for using in the USB bootloaders (firmware update via USB)!!
-// to do: add MSD and Audio v1.0 classes!
-// to do: enhance supported platforms list up to Atmels, STMs and possible NXP, but no, fuck that shit!!!!111
-// to do: add embedded HOST mode, IT'S TOO DIFFUCLT, FUCK THAT SHIT!1 but maybe later...
 // Author: Roman Grinev
 // Date 30.05.2017
-// Version history:
-// 0.1 initial release
-// 0.1a added HID class
-// 0.1b added callbacks for OUT DATA stage of SETUP request and for user DATA
-// 0.1.1 added CDC class
-// 0.1.2 some minor fixes and optimisations
 
 // Useful link http://www.beyondlogic.org/usbnutshell/usb4.shtml
 
